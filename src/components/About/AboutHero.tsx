@@ -1,46 +1,38 @@
 import Link from "next/link";
 
-const Hero = () => {
+const AboutHero = () => {
   return (
     <>
       <section
         id="home"
-        className="relative z-10 flex min-h-screen items-center overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
+        className="relative z-10  overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
       >
         <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="flex w-full items-center justify-between gap-10 px-4">
-              <div className="mx-auto max-w-[800px] text-center">
-                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Bilim olish hech qachon bu qadar oson bo‘lmagan!
-                </h1>
-                <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                  Bizning platformamiz orqali siz istalgan sohada bilim
-                  olishingiz va o‘z mahoratingizni monetizatsiya qilishingiz
-                  mumkin. Hamma uchun ochiq, qulay va arzon ta'lim
-                  imkoniyatlarini taqdim etamiz.
-                </p>
-                <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  <Link
-                    href="/signup"
-                    className="rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                  >
-                    🚀 Platformaga qo‘shiling
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
-                  >
-                    Batafsil ma'lumot
-                  </Link>
-                </div>
-              </div>
-              <div className="w-full px-4">
-                <img
-                  src="/images/hero/study.jpg"
-                  alt="asd"
-                  className={"h-[500px] w-[500px] rounded-[20%] object-cover"}
-                />
+          <div className="flex w-full items-center justify-between gap-10 px-4">
+            <div className="mx-auto max-w-[800px] text-center">
+              <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
+                Ta’lim va O‘qitishning Yangi Avlod Platformasi
+              </h1>
+              <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
+                Bizning platformamiz o‘qituvchilar va o‘quvchilarni bir joyda
+                jamlaydi, bilim olish va o‘rgatishni soddalashtiradi. AI
+                yordamida individual ta’limni rivojlantirish, o‘qituvchilarga
+                daromad olish imkoniyatlari yaratish va barcha foydalanuvchilar
+                uchun qulay interfeys taklif etamiz.
+              </p>
+              <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+                <Link
+                  href="#"
+                  className="rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                >
+                  O'qitishni Boshlang
+                </Link>
+                <Link
+                  href="#"
+                  className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
+                >
+                  O'rganishni Boshlang
+                </Link>
               </div>
             </div>
           </div>
@@ -291,4 +283,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default AboutHero;

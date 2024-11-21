@@ -27,6 +27,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <Demo />
           <ScrollToTop />
         </Providers>
       </body>
@@ -35,3 +36,4 @@ export default function RootLayout({
 }
 
 import { Providers } from "./providers";
+import Demo from "@/components/Demo";
