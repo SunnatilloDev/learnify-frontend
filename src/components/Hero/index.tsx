@@ -9,7 +9,7 @@ const Hero = () => {
       >
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
-            <div className="flex w-full items-center justify-between gap-10 px-4">
+            <div className="flex  w-full items-center justify-between gap-10 px-4">
               <div className="mx-auto max-w-[800px] text-center">
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
                   Bilim olish hech qachon bu qadar oson bo‘lmagan!
@@ -35,11 +35,11 @@ const Hero = () => {
                   </Link>
                 </div>
               </div>
-              <div className="w-full px-4">
+              <div className="hidden w-full px-4 xl:block">
                 <img
                   src="/images/hero/study.jpg"
                   alt="asd"
-                  className={"h-[500px] w-[500px] rounded-[20%] object-cover"}
+                  className={"h-[500px]  w-[500px] rounded-[20%] object-cover"}
                 />
               </div>
             </div>

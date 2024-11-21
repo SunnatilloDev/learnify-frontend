@@ -1,64 +1,57 @@
 import { Feature } from "@/types/feature";
-import { BadgeDollarSign, BrainCircuit, Earth, HandCoinsIcon, Swords, TvMinimalPlayIcon, Users } from "lucide-react";
+import {
+  BadgeDollarSign,
+  BrainCircuit,
+  Earth,
+  HandCoinsIcon,
+  Swords,
+  TvMinimalPlayIcon,
+  Users,
+} from "lucide-react";
 
 const featuresData: Feature[] = [
   {
     id: 1,
-    icon: (
-    <Earth size={"40px"}/>
-    ),
-    title: "Accessible Learning for Everyone",
+    icon: <Earth size={"40px"} />,
+    title: "Har bir kishi uchun qulay ta'lim",
     paragraph:
-      "Our platform makes education accessible and affordable, empowering students and teachers to connect and grow from anywhere.",
+      "Platformamiz ta'limni har kimga qulay va arzon qilib taqdim etadi, talabalar va o‘qituvchilarga dunyoning istalgan nuqtasida bog‘lanib o‘sish imkonini beradi.",
   },
   {
     id: 2,
-    icon: (
-      <TvMinimalPlayIcon size={"40px"}/>
-    ),
-    title: "High-Quality Video Courses",
+    icon: <TvMinimalPlayIcon size={"40px"} />,
+    title: "Yuqori sifatli video kurslar",
     paragraph:
-      "Experience learning like never before with 4K-quality courses designed to provide clarity and engagement for students.",
+      "4K sifatli kurslar bilan ta'limni yangi darajada boshdan kechiring. Aniq va qiziqarli darslar talabalar uchun tayyorlangan.",
   },
   {
     id: 3,
-    icon: (
-      <BrainCircuit size={"40px"}/>
-    ),
-    title: "AI-Powered Learning",
+    icon: <BrainCircuit size={"40px"} />,
+    title: "AI orqali ta'limni yaxshilash",
     paragraph:
-      "Leverage the power of AI to recommend courses, answer questions, and help both students and teachers improve faster.",
+      "AI yordamida kurslarni tavsiya qilish, savollarga javob berish va talabalar hamda o‘qituvchilar uchun rivojlanishni tezlashtirish imkonini qo‘lga kiriting.",
   },
   {
     id: 4,
-    icon: (
-     <HandCoinsIcon size={"40px"}/>
-    ),
-    title: "Empowering Teachers",
+    icon: <HandCoinsIcon size={"40px"} />,
+    title: "O‘qituvchilarni qo‘llab-quvvatlash",
     paragraph:
-      "Teachers can monetize their skills with ease, focusing on creating quality content while we handle the rest.",
+      "O‘qituvchilar o‘z mahoratlarini monetizatsiya qilishlari mumkin, sifatlilikka e'tibor qaratib, texnik ishlarni bizga topshirishadi.",
   },
   {
     id: 5,
-    icon: (
-     <Users size={"40px"}/>
-    ),
-    title: "Collaborative Study Rooms",
+    icon: <Users size={"40px"} />,
+    title: "Hamkorlikdagi o‘quv xonalari",
     paragraph:
-      "Join study rooms to learn and grow with like-minded individuals working towards similar goals. Share insights, discuss topics, and stay motivated.",
+      "Bir xil maqsadlarga erishishni istovchi odamlar bilan o‘quv xonalariga qo‘shiling. Fikr almashing, mavzularni muhokama qiling va motivatsiyani saqlang.",
   },
   {
     id: 6,
-    icon: (
-      <Swords size={"40px"}/>
-
-    ),
-    title: "Gamified Learning Experience",
+    icon: <Swords size={"40px"} />,
+    title: "Gamifikatsiyalangan ta'lim tajribasi",
     paragraph:
-      "Stay motivated with leaderboards, achievements, and rewards for completing courses and engaging with the platform. Learning has never been this fun!",
-  }
-
-
+      "Kurslarni tugatish va platformada faol ishtirok etish uchun reytinglar, yutuqlar va mukofotlar bilan motivatsiyani oshiring. O‘rganish hech qachon bu qadar qiziqarli bo‘lmagan!",
+  },
 ];
 
 export default featuresData;
