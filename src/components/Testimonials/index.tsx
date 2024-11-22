@@ -8,7 +8,7 @@ const testimonialData: Testimonial[] = [
     name: "Musharof Chy",
     designation: "Founder @TailGrids",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Bizning a'zolarimiz juda ta'sirlangan. Bu intuitiv, toza va chalg'ituvchi narsalardan xoli. Agar siz hamjamiyat yaratmoqchi bo'lsangiz.",
     image: "/images/testimonials/auth-01.png",
     star: 5,
   },
@@ -17,7 +17,7 @@ const testimonialData: Testimonial[] = [
     name: "Devid Weilium",
     designation: "Founder @UIdeck",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Bizning a'zolarimiz juda ta'sirlangan. Bu intuitiv, toza va chalg'ituvchi narsalardan xoli. Agar siz hamjamiyat yaratmoqchi bo'lsangiz.",
     image: "/images/testimonials/auth-02.png",
     star: 5,
   },
@@ -26,7 +26,7 @@ const testimonialData: Testimonial[] = [
     name: "Lethium Frenci",
     designation: "Founder @Lineicons",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+      "Bizning a'zolarimiz juda ta'sirlangan. Bu intuitiv, toza va chalg'ituvchi narsalardan xoli. Agar siz hamjamiyat yaratmoqchi bo'lsangiz.",
     image: "/images/testimonials/auth-03.png",
     star: 5,
   },
@@ -34,11 +34,11 @@ const testimonialData: Testimonial[] = [
 
 const Testimonials = () => {
   return (
-    <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
+    <section className="relative z-10 bg-gray-light py-16 dark:bg-bg-color-dark md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Foydalanuvchilar fikrlari"
+          paragraph="Lorem Ipsum'ning ko'plab versiyalari mavjud, ammo ularning aksariyati biror tarzda o'zgartirilgan."
           center
         />
 

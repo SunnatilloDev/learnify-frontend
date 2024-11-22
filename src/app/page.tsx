@@ -11,10 +11,12 @@ import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import { Metadata } from "next";
 import FAQ from "@/components/FAQ";
+import Teachers from "@/components/Teachers/Teachers";
 
 export const metadata: Metadata = {
-  title: "Free Next.js Template for Startup and SaaS",
-  description: "This is Home for Startup Nextjs Template",
+  title: "Online o'rganish",
+  description:
+    "Online talim olish, online o'rganish, online darslar, ilm olish, online ilm olish",
   // other metadata
 };
 
@@ -24,14 +26,14 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <Features />
-      {/*<Video />*/}
+      <Video />
       {/*<Brands />*/}
+      <Teachers />
       {/*<AboutSectionOne />*/}
       {/*<AboutSectionTwo />*/}
-      {/*<Testimonials />*/}
+      <Testimonials />
       {/*<Pricing />*/}
       {/*<Blog />*/}
-      <FAQ/>
       <Contact />
     </>
   );
