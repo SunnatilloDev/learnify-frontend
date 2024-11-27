@@ -26,6 +26,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           {children}
+          <TailwindIndicator />
           <Footer />
           <Demo />
           <ScrollToTop />
@@ -37,3 +38,4 @@ export default function RootLayout({
 
 import { Providers } from "./providers";
 import Demo from "@/components/Demo";
+import { TailwindIndicator } from "@/components/TailwindIndicator";

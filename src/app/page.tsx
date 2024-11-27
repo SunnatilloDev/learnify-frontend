@@ -16,7 +16,7 @@ import Teachers from "@/components/Teachers/Teachers";
 export const metadata: Metadata = {
   title: "Online o'rganish",
   description:
-    "Online talim olish, online o'rganish, online darslar, ilm olish, online ilm olish",
+    "Online talim olish, online o'rganish, online darslar, ilm olish, online ilm olish, masofaviy ta'lim",
   // other metadata
 };
 
