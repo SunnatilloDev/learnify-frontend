@@ -28,7 +28,7 @@ const Hero = () => {
                   </Link>
                 </div>
               </div>
-              <div className="flex hidden w-full justify-end align-bottom xl:block">
+              <div className="flex hidden w-full justify-end align-bottom xl:flex">
                 <img
                   src="/images/hero/study.jpg"
                   alt="asd"
