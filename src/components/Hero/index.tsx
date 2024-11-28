@@ -17,7 +17,7 @@ const Hero = () => {
                 </h1>
                 <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
                   Talabalar va o‘qituvchilar uchun mukammal platforma –
-                  O‘rganish oson va foydali
+                  O‘rganish oson va foydali!
                 </p>
                 <div className="flex flex-col justify-start space-y-4 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0">
                   <Link
@@ -25,12 +25,6 @@ const Hero = () => {
                     className="rounded-2xl bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
                     ⚡️ O'rganishni Boshlang
-                  </Link>
-                  <Link
-                    href="/signin"
-                    className="inline-block rounded-2xl border border-primary px-8 py-4 text-base font-semibold text-primary duration-300 ease-in-out hover:bg-primary hover:text-white"
-                  >
-                    ⚡️ O'qitishni Boshlang
                   </Link>
                 </div>
               </div>

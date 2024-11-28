@@ -5,6 +5,9 @@ import Hero from "@/components/Hero";
 import Teachers from "@/components/Teachers/Teachers";
 import Testimonials from "@/components/Testimonials";
 import WithLayout from "@/components/with-layout/layout";
+import TeacherCTA from "@/components/TeacherCTA";
+import HowItWorks from "@/components/HowItWorks";
+import WhyChoose from "@/components/WhyChoose";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,13 +22,16 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <Features />
+      <HowItWorks />
+      <WhyChoose />
+      <TeacherCTA />
       {/*<Video />*/}
       {/*<Brands />*/}
-      <Teachers />
+      {/* <Teachers /> */}
       {/*<Pricing />*/}
       {/*<AboutSectionOne />*/}
       {/*<AboutSectionTwo />*/}
-      <Testimonials />
+      {/* <Testimonials /> */}
       {/*<Pricing />*/}
       {/*<Blog />*/}
       <Contact />
