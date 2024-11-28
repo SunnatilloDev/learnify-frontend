@@ -62,12 +62,12 @@ const menuData: Menu[] = [
   //     },
   //   ],
   // },
-  {
-    id: 2,
-    title: "Biz Haqimizda",
-    path: "/about",
-    newTab: false,
-  },
+  // {
+  //   id: 2,
+  //   title: "Biz Haqimizda",
+  //   path: "/about",
+  //   newTab: false,
+  // },
   // {
   //   id: 33,
   //   title: "Blog",
@@ -76,8 +76,14 @@ const menuData: Menu[] = [
   // },
   {
     id: 3,
-    title: "Qo'llab Quvvatlash",
-    path: "/contact",
+    title: "Narxlar",
+    path: "/pricing",
+    newTab: false,
+  },
+  {
+    id: 3,
+    title: "FAQ",
+    path: "/faq",
     newTab: false,
   },
 ];

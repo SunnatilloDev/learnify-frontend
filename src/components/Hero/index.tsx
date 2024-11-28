@@ -24,7 +24,13 @@ const Hero = () => {
                     href="/signup"
                     className="rounded-2xl bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
-                    ⚡️ Hozir boshlang
+                    ⚡️ O'rganishni Boshlang
+                  </Link>
+                  <Link
+                    href="/signin"
+                    className="inline-block rounded-2xl border border-primary px-8 py-4 text-base font-semibold text-primary duration-300 ease-in-out hover:bg-primary hover:text-white"
+                  >
+                    ⚡️ O'qitishni Boshlang
                   </Link>
                 </div>
               </div>
