@@ -1,128 +1,131 @@
-import { Feature } from "@/types/feature";
 import {
+  BookOpen,
   BrainCircuit,
-  Earth,
-  HandCoinsIcon,
-  Swords,
-  TvMinimalPlayIcon,
+  FileCheck,
+  GraduationCap,
+  LayoutDashboard,
+  MessageSquare,
+  MonitorPlay,
+  PenTool,
+  PersonStanding,
+  Settings,
+  Trophy,
   Users,
-  BookOpenIcon,
-  ShieldCheckIcon,
-  BarChart3Icon,
-  RocketIcon,
-  MessageSquareDot,
-  ClockIcon,
-  CloudIcon,
-  MedalIcon,
-  LightbulbIcon,
+  Video,
+  Wand2,
 } from "lucide-react";
 
-const featuresData: Feature[] = [
+export const features = [
   {
     id: 1,
-    icon: <Earth size={"40px"} />,
-    title: "Har bir kishi uchun qulay ta'lim",
-    paragraph:
-      "Platformamiz ta'limni har kimga qulay va arzon qilib taqdim etadi, talabalar va o‘qituvchilarga dunyoning istalgan nuqtasida bog‘lanib o‘sish imkonini beradi.",
+    icon: <MonitorPlay className="h-7 w-7" />,
+    title: "Onlayn darslar",
+    description:
+      "Platformada o'qituvchilar tomonidan yaratilgan yuqori sifatli video darslar mavjud",
+    category: "learning",
   },
   {
     id: 2,
-    icon: <TvMinimalPlayIcon size={"40px"} />,
-    title: "Yuqori sifatli video kurslar",
-    paragraph:
-      "4K sifatli kurslar bilan ta'limni yangi darajada boshdan kechiring. Aniq va qiziqarli darslar talabalar uchun tayyorlangan.",
+    icon: <MessageSquare className="h-7 w-7" />,
+    title: "Jonli muloqot",
+    description:
+      "O'qituvchi va o'quvchilar o'rtasida real vaqtda muloqot qilish imkoniyati",
+    category: "communication",
   },
   {
     id: 3,
-    icon: <BrainCircuit size={"40px"} />,
-    title: "AI orqali ta'limni yaxshilash",
-    paragraph:
-      "AI yordamida kurslarni tavsiya qilish, savollarga javob berish va talabalar hamda o‘qituvchilar uchun rivojlanishni tezlashtirish imkonini qo‘lga kiriting.",
+    icon: <FileCheck className="h-7 w-7" />,
+    title: "Topshiriqlar",
+    description:
+      "Har bir mavzu bo'yicha amaliy topshiriqlar va testlar orqali bilimlarni mustahkamlash",
+    category: "assessment",
   },
   {
     id: 4,
-    icon: <HandCoinsIcon size={"40px"} />,
-    title: "O‘qituvchilarni qo‘llab-quvvatlash",
-    paragraph:
-      "O‘qituvchilar o‘z mahoratlarini monetizatsiya qilishlari mumkin, sifatlilikka e'tibor qaratib, texnik ishlarni bizga topshirishadi.",
+    icon: <LayoutDashboard className="h-7 w-7" />,
+    title: "Shaxsiy kabinet",
+    description:
+      "Har bir foydalanuvchi uchun qulay va zamonaviy shaxsiy kabinet",
+    category: "dashboard",
   },
   {
     id: 5,
-    icon: <Users size={"40px"} />,
-    title: "Hamkorlikdagi o‘quv xonalari",
-    paragraph:
-      "Bir xil maqsadlarga erishishni istovchi odamlar bilan o‘quv xonalariga qo‘shiling. Fikr almashing, mavzularni muhokama qiling va motivatsiyani saqlang.",
+    icon: <BrainCircuit className="h-7 w-7" />,
+    title: "Sun'iy intellekt",
+    description:
+      "AI yordamida personallashtirilgan o'quv dasturi va tavsiyalar",
+    category: "ai",
   },
   {
     id: 6,
-    icon: <Swords size={"40px"} />,
-    title: "Gamifikatsiyalangan ta'lim tajribasi",
-    paragraph:
-      "Kurslarni tugatish va platformada faol ishtirok etish uchun reytinglar, yutuqlar va mukofotlar bilan motivatsiyani oshiring. O‘rganish hech qachon bu qadar qiziqarli bo‘lmagan!",
+    icon: <Trophy className="h-7 w-7" />,
+    title: "Yutuqlar",
+    description:
+      "O'quvchilarning yutuqlarini kuzatib borish va rag'batlantirish tizimi",
+    category: "gamification",
   },
   {
     id: 7,
-    icon: <BookOpenIcon size={"40px"} />,
-    title: "Keng qamrovli kurslar",
-    paragraph:
-      "Dunyoning yetakchi mutaxassislari tomonidan tayyorlangan yuzlab kurslardan o‘z maqsadlaringizga mos keladiganini toping.",
+    icon: <Video className="h-7 w-7" />,
+    title: "Video konferensiya",
+    description:
+      "Guruh bo'lib yoki individual tarzda video darslar o'tkazish imkoniyati",
+    category: "communication",
   },
   {
     id: 8,
-    icon: <ShieldCheckIcon size={"40px"} />,
-    title: "Sertifikatlangan ta'lim",
-    paragraph:
-      "Kurslarni yakunlang va yutuqlaringizni isbotlovchi sertifikatlar oling. Sertifikatlar yirik kompaniyalar tomonidan tan olinadi.",
+    icon: <PenTool className="h-7 w-7" />,
+    title: "Interaktiv doskalar",
+    description:
+      "Virtual doska orqali materiallarni tushuntirish va hamkorlikda ishlash",
+    category: "tools",
   },
   {
     id: 9,
-    icon: <BarChart3Icon size={"40px"} />,
-    title: "Shaxsiy rivojlanish statistikalari",
-    paragraph:
-      "Ta'lim yo‘lingizni kuzatib boring: muvaffaqiyatlaringiz, zaif tomonlaringiz va rivojlanishingizni tahlil qiling.",
+    icon: <BookOpen className="h-7 w-7" />,
+    title: "Elektron kutubxona",
+    description:
+      "Keng qamrovli o'quv materiallari va kitoblar to'plami",
+    category: "resources",
   },
   {
     id: 10,
-    icon: <RocketIcon size={"40px"} />,
-    title: "Kariyerangizni tezlashtiring",
-    paragraph:
-      "Bozorda talab yuqori bo‘lgan ko‘nikmalarni o‘rganing va EduVerse orqali muvaffaqiyatli kelajak sari qadam tashlang.",
+    icon: <Users className="h-7 w-7" />,
+    title: "Guruhlar",
+    description:
+      "O'quvchilarni guruhlarga bo'lib o'qitish va hamkorlikda ishlash",
+    category: "collaboration",
   },
   {
     id: 11,
-    icon: <MessageSquareDot size={"40px"} />,
-    title: "O‘qituvchilar bilan jonli aloqalar",
-    paragraph:
-      "O‘qituvchilarga to‘g‘ridan-to‘g‘ri savollar bering va real vaqt rejimida javob oling. Platformamiz muloqot uchun qulay vositalar taqdim etadi.",
+    icon: <GraduationCap className="h-7 w-7" />,
+    title: "Sertifikatlar",
+    description:
+      "Kurslarni muvaffaqiyatli yakunlagan o'quvchilarga sertifikatlar berish",
+    category: "certification",
   },
   {
     id: 12,
-    icon: <ClockIcon size={"40px"} />,
-    title: "Moslashuvchan jadval",
-    paragraph:
-      "O‘zingizga qulay vaqtda o‘rganing. Moslashuvchan jadval tufayli ta'lim olish imkoniyatlari cheklanmagan.",
+    icon: <Settings className="h-7 w-7" />,
+    title: "Moslashuvchanlik",
+    description:
+      "Har bir o'quvchining o'zlashtirish sur'atiga moslashgan o'quv dasturi",
+    category: "personalization",
   },
   {
     id: 13,
-    icon: <CloudIcon size={"40px"} />,
-    title: "Materiallarni yuklab olish imkoniyati",
-    paragraph:
-      "Darslarni yuklab oling va internet aloqasiz ham ta'limni davom ettiring.",
+    icon: <Wand2 className="h-7 w-7" />,
+    title: "AI Yordamchi",
+    description:
+      "24/7 AI asosida ishlaydigon yordamchi o'qituvchi",
+    category: "ai",
   },
   {
     id: 14,
-    icon: <MedalIcon size={"40px"} />,
-    title: "Global reyting tizimi",
-    paragraph:
-      "Talabalar va o‘qituvchilar o‘zlarining ta'lim yutuqlari bo‘yicha global reytinglar orqali boshqa foydalanuvchilar bilan raqobatlasha oladilar.",
-  },
-  {
-    id: 15,
-    icon: <LightbulbIcon size={"40px"} />,
-    title: "Yangi g‘oyalarga ochiq platforma",
-    paragraph:
-      "Innovatsion fikrlaringizni platformada amalda qo‘llang. EduVerse ijodkorlikni rag‘batlantiradi.",
+    icon: <PersonStanding className="h-7 w-7" />,
+    title: "Individual yondashuv",
+    description:
+      "Har bir o'quvchiga individual yondashuv va qo'llab-quvvatlash",
+    category: "personalization",
   },
 ];
-
-export default featuresData;

@@ -81,7 +81,13 @@ const menuData: Menu[] = [
     newTab: false,
   },
   {
-    id: 3,
+    id: 4,
+    title: "Xususiyyatlar",
+    path: "/features",
+    newTab: false,
+  },
+  {
+    id: 5,
     title: "FAQ",
     path: "/faq",
     newTab: false,
