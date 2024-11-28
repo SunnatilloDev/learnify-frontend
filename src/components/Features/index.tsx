@@ -1,13 +1,11 @@
 import Link from "next/link";
 import { features } from "./featuresData";
 import SingleFeature from "./SingleFeature";
-import WithLayout from "../with-layout/layout";
 
 const Features = ({ showAll = false }: { showAll?: boolean }) => {
   const displayedFeatures = showAll ? features : features.slice(0, 6);
 
   return (
-    <WithLayout>
     <section className="relative z-10 overflow-hidden bg-gradient-to-b from-slate-50 via-slate-100/80 to-slate-50 py-16 dark:from-dark/50 dark:via-dark dark:to-dark/50 lg:py-24">
       <div className="container">
         {!showAll && (
@@ -56,7 +54,6 @@ const Features = ({ showAll = false }: { showAll?: boolean }) => {
         <div className="absolute left-1/3 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-gradient-to-br from-primary/40 to-primary/0 blur-2xl dark:from-primary/50" />
       </div>
     </section>
-    </WithLayout>
   );
 };
 

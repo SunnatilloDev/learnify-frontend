@@ -1,8 +1,9 @@
 import Features from "@/components/Features";
+import WithLayout from "@/components/with-layout/layout";
 
 const FeaturesPage = () => {
   return (
-    <>
+    <WithLayout>
       <section className="pb-8 pt-24 md:pb-16 md:pt-28 lg:pb-24 lg:pt-32">
         <div className="container">
           <div className="mx-auto mb-12 max-w-[800px] text-center lg:mb-20">
@@ -16,7 +17,7 @@ const FeaturesPage = () => {
         </div>
       </section>
       <Features showAll />
-    </>
+    </WithLayout>
   );
 };
 
