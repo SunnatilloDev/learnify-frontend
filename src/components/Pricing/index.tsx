@@ -1,18 +1,104 @@
 "use client";
+
 import { useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import OfferList from "./OfferList";
 import PricingBox from "./PricingBox";
 
-const Pricing = () => {
+interface Feature {
+  text: string;
+  status: "active" | "inactive";
+}
+
+interface PricingPlan {
+  packageName: string;
+  monthlyPrice: string;
+  yearlyPrice: string;
+  subtitle: string;
+  features: Feature[];
+  isSpecial?: boolean;
+}
+
+const pricingPlans: PricingPlan[] = [
+  {
+    packageName: "Bepul Tarif",
+    monthlyPrice: "0",
+    yearlyPrice: "0",
+    subtitle: "O'quvchi va o'qituvchilar uchun boshlang'ich imkoniyatlar",
+    features: [
+      { text: "Cheklangan bepul kurslar", status: "active" },
+      { text: "Asosiy kurs jarayonini kuzatish", status: "active" },
+      { text: "Standart sifatli (SD) videolar", status: "active" },
+      { text: "Jamiyat forumlariga kirish", status: "active" },
+      { text: "Asosiy resurslar (PDF, hujjatlar)", status: "active" },
+      { text: "Email orqali yordam", status: "active" },
+      { text: "Bitta kurs yaratish (O'qituvchilar)", status: "active" },
+      { text: "HD/4K video sifati", status: "inactive" },
+      { text: "Tezkor yordam", status: "inactive" },
+    ],
+  },
+  {
+    packageName: "Plus Tarif",
+    monthlyPrice: "9.99",
+    yearlyPrice: "99.99",
+    subtitle: "Qo'shimcha imkoniyatlarga ega bo'lgan o'rta tarif",
+    features: [
+      { text: "Barcha asosiy kurslar", status: "active" },
+      { text: "HD video sifati", status: "active" },
+      { text: "Tezkor mijozlarni qo'llab-quvvatlash", status: "active" },
+      { text: "Interaktiv testlar", status: "active" },
+      { text: "Kurs sertifikatlari", status: "active" },
+      { text: "O'yin elementlari", status: "active" },
+      { text: "5 tagacha kurs yaratish (O'qituvchilar)", status: "active" },
+      { text: "70% daromad ulushi (O'qituvchilar)", status: "active" },
+      { text: "4K video sifati", status: "inactive" },
+    ],
+  },
+  {
+    packageName: "Pro Tarif",
+    monthlyPrice: "29.99",
+    yearlyPrice: "299",
+    subtitle: "Premium imkoniyatlarga ega to'liq kirish",
+    features: [
+      { text: "Barcha kurslarga to'liq kirish", status: "active" },
+      { text: "Ultra HD (4K) video sifati", status: "active" },
+      { text: "Tezkor va telefon orqali yordam", status: "active" },
+      { text: "AI kurs tavsiyalari", status: "active" },
+      { text: "Maxsus vebinarlar", status: "active" },
+      { text: "Oflayn kurs ko'rish", status: "active" },
+      { text: "Cheksiz kurs yaratish", status: "active" },
+      { text: "80% daromad ulushi (O'qituvchilar)", status: "active" },
+      { text: "VIP yordam va marketing", status: "active" },
+    ],
+  },
+  {
+    packageName: "Tashkilot Tarifi",
+    monthlyPrice: "Maxsus",
+    yearlyPrice: "Maxsus",
+    subtitle: "Tashkilotlar uchun maxsus yechimlar",
+    features: [
+      { text: "Cheksiz kurslar va talabalar", status: "active" },
+      { text: "Shaxsiy menejer", status: "active" },
+      { text: "Maxsus brending", status: "active" },
+      { text: "Oq yorliq imkoniyati", status: "active" },
+      { text: "Korxona darajasidagi tahlillar", status: "active" },
+      { text: "Maxsus API integratsiya", status: "active" },
+      { text: "Ustuvor funksiyalar so'rovi", status: "active" },
+      { text: "Yuqori xavfsizlik (SSO)", status: "active" },
+      { text: "GDPR muvofiqlik", status: "active" },
+    ],
+  },
+];
+
+const Pricing: React.FC = () => {
   const [isMonthly, setIsMonthly] = useState(true);
 
   return (
     <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="Simple and Affordable Pricing"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="Qulay va Hamyonbop Narxlar"
+          paragraph="O'zingizga mos o'qish yoki o'qitish rejasini tanlang"
           center
           width="665px"
         />
@@ -27,7 +113,7 @@ const Pricing = () => {
                   : "text-dark dark:text-white"
               } mr-4 cursor-pointer text-base font-semibold`}
             >
-              Monthly
+              Oylik
             </span>
             <div
               onClick={() => setIsMonthly(!isMonthly)}
@@ -52,52 +138,31 @@ const Pricing = () => {
                   : "pointer-events-none text-primary"
               } ml-4 cursor-pointer text-base font-semibold`}
             >
-              Yearly
+              Yillik
             </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          <PricingBox
-            packageName="Lite"
-            price={isMonthly ? "40" : "120"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
-          >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="inactive" />
-            <OfferList text="Free Lifetime Updates" status="inactive" />
-          </PricingBox>
-          <PricingBox
-            packageName="Basic"
-            price={isMonthly ? "399" : "789"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
-          >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="active" />
-            <OfferList text="Free Lifetime Updates" status="inactive" />
-          </PricingBox>
-          <PricingBox
-            packageName="Plus"
-            price={isMonthly ? "589" : "999"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
-          >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="active" />
-            <OfferList text="Free Lifetime Updates" status="active" />
-          </PricingBox>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {pricingPlans.map((plan, index) => (
+            <PricingBox
+              key={index}
+              packageName={plan.packageName}
+              price={isMonthly ? plan.monthlyPrice : plan.yearlyPrice}
+              duration={isMonthly ? "oy" : "yil"}
+              subtitle={plan.subtitle}
+            >
+              {plan.features.map((feature, featureIndex) => (
+                <OfferList
+                  key={featureIndex}
+                  text={feature.text}
+                  status={feature.status}
+                />
+              ))}
+            </PricingBox>
+          ))}
         </div>
+
       </div>
 
       <div className="absolute bottom-0 left-0 z-[-1]">

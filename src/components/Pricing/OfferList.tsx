@@ -18,11 +18,25 @@ const OfferList = ({
   status: "active" | "inactive";
 }) => {
   return (
-    <div className="mb-3 flex items-center">
-      <span className="mr-3 flex h-[18px] w-full max-w-[18px] items-center justify-center rounded-full bg-primary bg-opacity-10 text-primary">
+    <div className="flex items-center space-x-3">
+      <span
+        className={`flex h-[18px] w-[18px] items-center justify-center rounded-full ${
+          status === "active"
+            ? "bg-primary text-white"
+            : "bg-[#E3E8EF] text-body-color dark:bg-dark-6"
+        }`}
+      >
         {status === "active" ? checkIcon : crossIcon}
       </span>
-      <p className="m-0 text-base font-medium text-body-color">{text}</p>
+      <p
+        className={`text-sm ${
+          status === "active"
+            ? "text-body-color"
+            : "text-body-color/50 line-through"
+        }`}
+      >
+        {text}
+      </p>
     </div>
   );
 };
