@@ -2,7 +2,6 @@
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import ScrollToTop from "@/components/ScrollToTop";
 
 export default function WithLayout({
   children,
@@ -14,7 +13,6 @@ export default function WithLayout({
       <Header />
       {children}
       <Footer />
-      <ScrollToTop />
     </>
   );
 }
