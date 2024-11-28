@@ -82,7 +82,7 @@ const menuData: Menu[] = [
   },
   {
     id: 4,
-    title: "Xususiyyatlar",
+    title: "Imkoniyatlar",
     path: "/features",
     newTab: false,
   },
@@ -94,4 +94,3 @@ const menuData: Menu[] = [
   },
 ];
 export default menuData;
-``;
