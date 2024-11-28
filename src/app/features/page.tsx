@@ -1,9 +1,26 @@
-import Features from "@/components/Features";
+import ScrollUp from "@/components/Common/ScrollUp";
 import WithLayout from "@/components/with-layout/layout";
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
-const FeaturesPage = () => {
+const Features = dynamic(() => import("@/components/Features"), {
+  loading: () => (
+    <div className="min-h-screen opacity-0 transition-opacity duration-300">
+      {/* This div maintains layout during load */}
+    </div>
+  ),
+  ssr: false,
+});
+
+export const metadata: Metadata = {
+  title: "Features - Learnify",
+  description: "Explore all features of our learning platform",
+};
+
+export default function FeaturesPage() {
   return (
     <WithLayout>
+      <ScrollUp />
       <section className="pb-8 pt-24 md:pb-16 md:pt-28 lg:pb-24 lg:pt-32">
         <div className="container">
           <div className="mx-auto mb-12 max-w-[800px] text-center lg:mb-20">
@@ -19,6 +36,4 @@ const FeaturesPage = () => {
       <Features showAll />
     </WithLayout>
   );
-};
-
-export default FeaturesPage;
+}
