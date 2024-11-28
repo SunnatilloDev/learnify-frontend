@@ -27,8 +27,7 @@ const Footer = () => {
                   />
                 </Link>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer lobortis.
+                  EduVerse - zamonaviy ta'lim platformasi orqali bilim olish va o'qitish jarayonini yanada samaraliroq qiling. Bizning platformamiz orqali siz istalgan joyda, istalgan vaqtda ta'lim olishingiz mumkin.
                 </p>
                 <div className="flex items-center">
                   <a
@@ -112,15 +111,15 @@ const Footer = () => {
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Kerakli sahifalar
+                  Asosiy Bo'limlar
                 </h2>
                 <ul>
                   <li>
                     <Link
-                      href="/blog"
+                      href="/features"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Blog
+                      Imkoniyatlar
                     </Link>
                   </li>
                   <li>
@@ -128,15 +127,15 @@ const Footer = () => {
                       href="/pricing"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Premium narxlari
+                      Narxlar
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/about"
+                      href="/faq"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      About
+                      Ko'p so'raladigan savollar
                     </Link>
                   </li>
                 </ul>
@@ -146,65 +145,65 @@ const Footer = () => {
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Terms
+                  Qo'shimcha
                 </h2>
                 <ul>
                   <li>
                     <Link
-                      href="/"
+                      href="/about"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      TOS
+                      Biz haqimizda
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/contact"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Privacy Policy
+                      Bog'lanish
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/privacy"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Refund Policy
+                      Maxfiylik siyosati
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
 
-            <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
+            <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Support & Help
+                  Yordam
                 </h2>
                 <ul>
                   <li>
                     <Link
-                      href="/contact"
+                      href="/support"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Open Support Ticket
+                      Qo'llab-quvvatlash
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/terms"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Terms of Use
+                      Foydalanish shartlari
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/about"
+                      href="/guide"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      About
+                      Qo'llanma
                     </Link>
                   </li>
                 </ul>
