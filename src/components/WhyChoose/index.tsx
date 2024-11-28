@@ -38,74 +38,76 @@ const benefits = [
 
 const WhyChoose = () => {
   return (
-    <section className="relative z-10 overflow-hidden bg-gradient-to-b from-white/50 to-white/0 py-16 dark:from-dark/50 dark:to-dark/0 lg:py-24">
-      <div className="container relative">
-        {/* Header */}
+    <section className="relative z-10 overflow-hidden bg-gradient-to-b from-slate-50 via-slate-100/80 to-slate-50 py-16 dark:from-dark/50 dark:via-dark dark:to-dark/50 lg:py-24">
+      <div className="container">
         <div className="mx-auto mb-8 max-w-[620px] text-center lg:mb-16">
-          <span className="mb-2 inline-block rounded-full bg-gradient-to-r from-primary/20 to-primary/0 px-4 py-1 text-base font-semibold text-primary backdrop-blur-sm dark:from-primary/40 dark:to-primary/5">
-            Nega aynan EduVerse?
+          <span className="relative mb-4 inline-flex items-center justify-center">
+            <span className="absolute -z-10 h-8 w-8 animate-ping rounded-full bg-primary/20" />
+            <span className="inline-flex rounded-full bg-gradient-to-br from-primary/20 to-primary/10 px-4 py-1.5 text-base font-semibold text-primary ring-1 ring-primary/20 dark:from-primary dark:to-primary/80 dark:text-white dark:ring-0">
+              Nega aynan EduVerse?
+            </span>
           </span>
-          <h2 className="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[42px]">
-            Bizning afzalliklarimiz
+          <h2 className="relative mb-6 text-3xl font-bold text-slate-900 dark:text-white sm:text-4xl md:text-[42px]">
+            Bizni tanlashingiz uchun sabablar
+            <div className="absolute left-1/2 top-1/2 -z-10 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-xl dark:bg-primary/30" />
           </h2>
-          <p className="text-lg leading-relaxed text-body-color dark:text-body-color-dark sm:text-xl sm:leading-relaxed">
-            EduVerse platformasi sizga eng yaxshi ta'lim tajribasini taqdim etadi
+          <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 sm:text-xl sm:leading-relaxed">
+            EduVerse platformasi orqali o'qituvchilar va o'quvchilar uchun eng yaxshi ta'lim muhitini yaratamiz
           </p>
         </div>
 
-        {/* Stats Section */}
-        <div className="mb-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 to-white/5 p-10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:from-white/[0.04] dark:to-white/[0.02] dark:shadow-primary/5"
-            >
-              <div className="relative z-10">
-                <div className="mb-4 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/80 text-white shadow-lg shadow-primary/30 dark:shadow-primary/20">
-                  {stat.icon}
-                </div>
-                <h3 className="mb-2 text-5xl font-bold text-primary">
-                  {stat.value}
-                </h3>
-                <p className="text-lg font-medium text-dark dark:text-white">
-                  {stat.label}
-                </p>
-              </div>
-              <div className="absolute inset-0 z-0 rounded-3xl bg-gradient-to-br from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary opacity-5 blur-3xl filter" />
-            </div>
-          ))}
-        </div>
-
-        {/* Benefits Section */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 to-white/5 p-10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:from-white/[0.04] dark:to-white/[0.02] dark:shadow-primary/5"
+              className="group relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-white via-white to-white/90 p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.07)] dark:from-slate-900/50 dark:via-slate-900/50 dark:to-slate-800/50 dark:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_20px_40px_rgb(0,0,0,0.2)]"
             >
               <div className="relative z-10">
-                <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/80 text-white shadow-lg shadow-primary/30 dark:shadow-primary/20">
-                  {benefit.icon}
+                <div className="relative mb-8 inline-flex h-[4.5rem] w-[4.5rem] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 shadow-lg shadow-black/[0.03] ring-1 ring-slate-100 transition-all duration-300 group-hover:scale-110 group-hover:from-primary/10 group-hover:to-primary/5 group-hover:ring-primary/20 dark:from-slate-800 dark:to-slate-900/90 dark:ring-slate-800 dark:group-hover:from-primary dark:group-hover:to-primary/90 dark:group-hover:ring-primary/50">
+                  <div className="relative z-10 text-slate-600 transition-colors duration-300 group-hover:text-primary dark:text-slate-400 dark:group-hover:text-white">
+                    {benefit.icon}
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/[0.01] dark:from-white/[0.01] dark:to-white/[0.02]" />
                 </div>
-                <h3 className="mb-4 text-2xl font-bold text-dark dark:text-white">
+                <h3 className="mb-4 text-xl font-bold text-slate-800 transition-colors duration-300 group-hover:text-primary dark:text-slate-100 dark:group-hover:text-primary">
                   {benefit.title}
                 </h3>
-                <p className="text-body-color dark:text-body-color-dark">
+                <p className="text-slate-600 dark:text-slate-400">
                   {benefit.description}
                 </p>
               </div>
-              <div className="absolute inset-0 z-0 rounded-3xl bg-gradient-to-br from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary opacity-5 blur-3xl filter" />
+
+              {/* Decorative Elements */}
+              <div className="pointer-events-none absolute -right-10 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-gradient-to-br from-primary/30 to-primary/0 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100 dark:from-primary/40 dark:to-primary/0" />
+              <div className="pointer-events-none absolute -bottom-20 -left-20 h-[300px] w-[300px] rounded-full bg-gradient-to-br from-primary/20 to-primary/0 opacity-0 blur-[100px] transition-opacity duration-500 group-hover:opacity-100 dark:from-primary/40 dark:to-primary/0" />
             </div>
           ))}
         </div>
 
-        {/* Background Effects */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-primary opacity-5 blur-[100px] filter dark:opacity-[0.07]" />
-          <div className="absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full bg-primary opacity-5 blur-[100px] filter dark:opacity-[0.07]" />
+        {/* Stats Section */}
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="group relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-white via-white to-white/90 p-8 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.07)] dark:from-slate-900/50 dark:via-slate-900/50 dark:to-slate-800/50 dark:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_20px_40px_rgb(0,0,0,0.2)]"
+            >
+              <div className="relative">
+                <h4 className="mb-2 text-3xl font-bold text-primary dark:text-white">
+                  {stat.value}
+                </h4>
+                <p className="text-slate-600 dark:text-slate-400">{stat.label}</p>
+                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/5 blur-2xl transition-all duration-300 group-hover:bg-primary/10 dark:bg-primary/10 dark:group-hover:bg-primary/20" />
+              </div>
+            </div>
+          ))}
         </div>
+      </div>
+
+      {/* Background Effects */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute left-1/4 top-0 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-primary/20 via-primary/5 to-primary/0 blur-[120px] dark:from-primary/30" />
+        <div className="absolute bottom-0 right-1/4 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-primary/20 via-primary/5 to-primary/0 blur-[120px] dark:from-primary/30" />
+        <div className="absolute left-1/3 top-1/2 h-32 w-32 -translate-y-1/2 rounded-full bg-gradient-to-br from-primary/40 to-primary/0 blur-2xl dark:from-primary/50" />
       </div>
     </section>
   );
