@@ -1,10 +1,37 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import WithLayout from "@/components/with-layout/layout";
 
 const SignInPage = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.replace("/profile");
+    }
+  }, [status, router]);
+
+  // If loading, show loading state
+  if (status === "loading") {
+    return (
+      <WithLayout>
+        <div className="flex min-h-[60vh] items-center justify-center">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-indigo-600 border-t-transparent"></div>
+        </div>
+      </WithLayout>
+    );
+  }
+
+  // If authenticated, don't render anything (will be redirected by useEffect)
+  if (status === "authenticated") {
+    return null;
+  }
+
   return (
     <WithLayout>
       <div className="flex min-h-[60vh] items-center justify-center">

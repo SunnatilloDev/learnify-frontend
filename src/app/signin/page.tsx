@@ -1,14 +1,32 @@
+"use client";
+
 import Link from "next/link";
-
-import { Metadata } from "next";
 import WithLayout from "@/components/with-layout/layout";
-
-export const metadata: Metadata = {
-  title: "Tizimga kirish | EduVerse",
-  description: "EduVerse platformasiga kirish sahifasi",
-};
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 const SigninPage = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const isNewlyRegistered = searchParams.get("registered") === "true";
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.replace("/welcome");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="h-16 w-16 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
+      </div>
+    );
+  }
+
   return (
     <WithLayout>
       <section className="relative z-10 overflow-hidden pb-16 pt-36 md:pb-20 lg:pb-28 lg:pt-[180px]">
@@ -16,10 +34,26 @@ const SigninPage = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4">
               <div className="shadow-three mx-auto max-w-[500px] rounded bg-white px-6 py-10 dark:bg-dark sm:p-[60px]">
+                {isNewlyRegistered && (
+                  <div className="mb-8 rounded-lg bg-green-50 p-4 dark:bg-green-900/50">
+                    <div className="flex">
+                      <div className="flex-shrink-0">
+                        <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div className="ml-3">
+                        <p className="text-sm font-medium text-green-800 dark:text-green-200">
+                          Ro'yxatdan o'tish muvaffaqiyatli yakunlandi! Iltimos, tizimga kiring.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
                 <h3 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl">
                   Kirish
                 </h3>
-                <p className="mb-11 text-base font-medium text-body-color">
+                <p className="mb-11 text-base font-medium text-body-color dark:text-body-color-dark">
                   Tizimga kirish uchun ma'lumotlaringizni kiriting
                 </p>
                 <button className="mb-6 flex w-full items-center justify-center rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base font-medium text-body-color outline-none transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:hover:border-primary dark:hover:bg-primary/5 dark:hover:text-primary">
@@ -51,7 +85,7 @@ const SigninPage = () => {
                       </g>
                       <defs>
                         <clipPath id="clip0_95:967">
-                          <rect width="20" height="20" fill="white" />
+                          <rect width="20" height="20" fill="#090E34" />
                         </clipPath>
                       </defs>
                     </svg>

@@ -5,12 +5,15 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    font-family: "Inter", sans-serif;
-  }
   html {
+    @apply overflow-y-scroll;
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* This accounts for fixed header height */
+  }
+  
+  body {
+    @apply scrollbar-gutter-stable;
+    font-family: "Inter", sans-serif;
   }
 }
 
@@ -44,4 +47,32 @@
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+@layer utilities {
+  .scrollbar-gutter-stable {
+    scrollbar-gutter: stable;
+  }
+}
+
+/* For Webkit browsers like Chrome/Safari */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border: 3px solid transparent;
+  border-radius: 9999px;
+  background-clip: content-box;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
 }
