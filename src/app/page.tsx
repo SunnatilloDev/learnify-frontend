@@ -11,9 +11,16 @@ import WhyChoose from "@/components/WhyChoose";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Online o'rganish",
+  title: "Eduverse - Online o'rganish platformasi | Masofaviy ta'lim",
   description:
-    "Online talim olish, online o'rganish, online darslar, ilm olish, online ilm olish, masofaviy ta'lim",
+    "Eduverse uz - O'zbekistonning eng yaxshi online ta'lim platformasi. Online talim olish, online o'rganish, online darslar, ilm olish, online ilm olish, masofaviy ta'lim imkoniyatlari.",
+  keywords: "Online o'rganish, Eduverse, Eduverse uz, talim olish, masofaviy ta'lim, online ta'lim, online darslar",
+  openGraph: {
+    title: "Eduverse - Online o'rganish platformasi | Masofaviy ta'lim",
+    description: "Eduverse uz - O'zbekistonning eng yaxshi online ta'lim platformasi. Online talim olish, masofaviy ta'lim imkoniyatlari.",
+    type: "website",
+    locale: "uz_UZ",
+  },
 };
 
 export default function Home() {
