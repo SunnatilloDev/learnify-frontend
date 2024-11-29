@@ -1,101 +1,48 @@
 import { Metadata } from "next";
 import SignUpForm from "./SignUpForm";
-
-<<<<<<< HEAD
 import Link from "next/link";
 import WithLayout from "@/components/with-layout/layout";
-import { useSession } from "next-auth/react";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/hooks/useAuth";
-import RegisterForm from "@/components/auth/RegisterForm";
 
-const SignupPage = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-  const { signIn } = useAuth();
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      router.replace("/welcome");
-    }
-  }, [status, router]);
-
-  if (status === "loading") {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <div className="h-16 w-16 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
-      </div>
-    );
-  }
-
-  return (
-    <WithLayout>
-      <section className="relative z-10 overflow-hidden pb-16 pt-36 md:pb-20 lg:pb-28 lg:pt-[180px]">
-        <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div className="mx-auto max-w-[500px] rounded bg-white px-6 py-10 shadow-three dark:bg-dark sm:p-[60px]">
-                <h3 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl">
-                  Ro'yxatdan o'tish
-                </h3>
-                <p className="mb-11 text-base text-body-color dark:text-body-color-dark">
-                  Ro'yxatdan o'tish uchun ma'lumotlaringizni kiriting
-                </p>
-                
-                <RegisterForm />
-
-                <p className="mt-8 text-center text-base text-body-color dark:text-body-color-dark">
-                  Akkountingiz bormi?{" "}
-                  <Link href="/signin" className="text-primary hover:underline">
-                    Kirish
-                  </Link>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </WithLayout>
-  );
-=======
 export const metadata: Metadata = {
   title: "Create Account | EduVerse",
   description: "Join EduVerse to access premium professional courses, expert-led training, and certification programs. Start your professional development journey today.",
   keywords: [
+    "sign up",
     "create account",
-    "professional training",
-    "expert courses",
-    "certification",
-    "skill development",
-    "career growth",
-    "EduVerse registration"
+    "register",
+    "eduverse",
+    "online learning",
+    "professional courses"
   ],
   openGraph: {
-    title: "Create Your EduVerse Account",
-    description: "Join the leading professional education platform. Access expert-led courses and advance your career.",
+    title: "Join EduVerse - Create Your Account",
+    description: "Start your learning journey with EduVerse. Access expert-led courses and certification programs.",
     type: "website",
-    locale: "en_US",
-    siteName: "EduVerse",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Create Your EduVerse Account",
-    description: "Join the leading professional education platform. Access expert-led courses and advance your career.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
->>>>>>> 76a98c542a3c4a118c927f0eb1bdca753e3b757b
+  }
 };
 
 export default function SignUpPage() {
   return (
-    <SignUpForm />
+    <WithLayout>
+      <section className="bg-gray-50 dark:bg-gray-900">
+        <div className="mx-auto flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0">
+          <div className="w-full rounded-lg bg-white p-6 shadow dark:border dark:border-gray-700 dark:bg-gray-800 sm:max-w-md sm:p-8">
+            <h2 className="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
+              Create an Account
+            </h2>
+            <SignUpForm />
+            <p className="mt-4 text-sm font-light text-gray-500 dark:text-gray-400">
+              Already have an account?{" "}
+              <Link
+                href="/signin"
+                className="font-medium text-primary hover:underline"
+              >
+                Sign in
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>
+    </WithLayout>
   );
 }

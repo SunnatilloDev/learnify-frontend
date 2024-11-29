@@ -13,21 +13,33 @@ const AnimatedHome = dynamic(() => import("@/components/Home/AnimatedHome"), {
 });
 
 export const metadata: Metadata = {
-<<<<<<< HEAD
-  title: "Online o'rganish",
-  description: "Online o'rganish platformasi",
-=======
   title: "Eduverse - Online o'rganish platformasi | Masofaviy ta'lim",
   description:
     "Eduverse uz - O'zbekistonning eng yaxshi online ta'lim platformasi. Online talim olish, online o'rganish, online darslar, ilm olish, online ilm olish, masofaviy ta'lim imkoniyatlari.",
-  keywords: "Online o'rganish, Eduverse, Eduverse uz, talim olish, masofaviy ta'lim, online ta'lim, online darslar",
+  keywords: [
+    "online o'rganish",
+    "online ta'lim",
+    "masofaviy ta'lim",
+    "online darslar",
+    "eduverse",
+    "o'zbekiston ta'lim platformasi",
+  ],
   openGraph: {
-    title: "Eduverse - Online o'rganish platformasi | Masofaviy ta'lim",
-    description: "Eduverse uz - O'zbekistonning eng yaxshi online ta'lim platformasi. Online talim olish, masofaviy ta'lim imkoniyatlari.",
+    title: "Eduverse - Online o'rganish platformasi",
+    description:
+      "O'zbekistonning eng yaxshi online ta'lim platformasi",
+    url: "https://eduverse.uz",
+    siteName: "Eduverse",
+    images: [
+      {
+        url: "https://eduverse.uz/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
     type: "website",
     locale: "uz_UZ",
   },
->>>>>>> cd5f894c9731d8f057803b0085a1d3903e8e7319
 };
 
 export default function Home() {

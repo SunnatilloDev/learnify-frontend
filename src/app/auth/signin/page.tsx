@@ -1,5 +1,3 @@
-"use client";
-
 import { signIn, useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -11,14 +9,11 @@ export const metadata: Metadata = {
   title: "Sign In | EduVerse",
   description: "Access your EduVerse account. Continue your professional development journey with our expert-led courses and certification programs.",
   keywords: [
-    "sign in",
+    "signin",
     "login",
-    "professional training",
-    "expert courses",
-    "certification",
-    "skill development",
-    "career growth",
-    "EduVerse login"
+    "eduverse",
+    "education",
+    "online learning"
   ],
   openGraph: {
     title: "Sign In to EduVerse",
@@ -42,7 +37,7 @@ export const metadata: Metadata = {
   },
 };
 
-const SignInPage = () => {
+export default function SignInPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -98,6 +93,4 @@ const SignInPage = () => {
       </div>
     </WithLayout>
   );
-};
-
-export default SignInPage;
+}
