@@ -1,229 +1,6 @@
-// import React, { useState, useEffect, useCallback } from "react";
-// import {
-//   Mail,
-//   LinkedinIcon,
-//   Twitter,
-//   ChevronLeft,
-//   ChevronRight,
-// } from "lucide-react";
-//
-// // Custom hook for single slide carousel
-// const useSlider = (totalItems) => {
-//   const [currentIndex, setCurrentIndex] = useState(0);
-//   const [isAnimating, setIsAnimating] = useState(false);
-//   const [touchStart, setTouchStart] = useState(null);
-//   const [touchEnd, setTouchEnd] = useState(null);
-//
-//   const next = useCallback(() => {
-//     if (isAnimating) return;
-//
-//     setIsAnimating(true);
-//     setCurrentIndex((prev) => {
-//       const nextIndex = prev + 1;
-//       // If we reach the end, return to first slide
-//       return nextIndex >= totalItems ? 0 : nextIndex;
-//     });
-//
-//     setTimeout(() => setIsAnimating(false), 500);
-//   }, [totalItems, isAnimating]);
-//
-//   const prev = useCallback(() => {
-//     if (isAnimating) return;
-//
-//     setIsAnimating(true);
-//     setCurrentIndex((prev) => {
-//       const prevIndex = prev - 1;
-//       // If we go before first slide, go to last slide
-//       return prevIndex < 0 ? totalItems - 1 : prevIndex;
-//     });
-//
-//     setTimeout(() => setIsAnimating(false), 500);
-//   }, [totalItems, isAnimating]);
-//
-//   // Touch handlers for mobile swipe
-//   const onTouchStart = (e) => {
-//     setTouchEnd(null);
-//     setTouchStart(e.targetTouches[0].clientX);
-//   };
-//
-//   const onTouchMove = (e) => {
-//     setTouchEnd(e.targetTouches[0].clientX);
-//   };
-//
-//   const onTouchEnd = () => {
-//     if (!touchStart || !touchEnd) return;
-//
-//     const distance = touchStart - touchEnd;
-//     const minSwipeDistance = 50;
-//
-//     if (distance > minSwipeDistance) {
-//       next();
-//     } else if (distance < -minSwipeDistance) {
-//       prev();
-//     }
-//   };
-//
-//   return {
-//     currentIndex,
-//     isAnimating,
-//     next,
-//     prev,
-//     touchHandlers: {
-//       onTouchStart,
-//       onTouchMove,
-//       onTouchEnd,
-//     },
-//   };
-// };
-//
-// const Teachers = () => {
-//   const { currentIndex, isAnimating, next, prev, touchHandlers } = useSlider(
-//     teachersData.length,
-//   );
-//
-//   // Auto-advance effect
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       if (!isAnimating) {
-//         next();
-//       }
-//     }, 5000);
-//     return () => clearInterval(interval);
-//   }, [isAnimating, next]);
-//
-//   return (
-//     <section className="bg-gradient-to-b from-gray-50 to-white py-16 dark:from-gray-900 dark:to-gray-800 lg:py-24">
-//       <div className="container mx-auto px-4">
-//         {/* Section Header */}
-//         <div className="mb-12 text-center">
-//           <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white lg:text-4xl">
-//             O'qituvchilar
-//           </h2>
-//           <p className="mx-auto max-w-2xl text-gray-600 dark:text-gray-300">
-//             Bizning malakali va tajribali o'qituvchilar jamoasi bilan tanishing
-//           </p>
-//         </div>
-//
-//         {/* Slider Container */}
-//         <div className="relative px-4">
-//           {/* Navigation Buttons */}
-//           <button
-//             onClick={prev}
-//             disabled={isAnimating}
-//             className="absolute -left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white p-2 shadow-lg transition-all hover:bg-gray-50 disabled:opacity-50 dark:bg-gray-800 dark:hover:bg-gray-700 md:-left-4 lg:-left-6"
-//             aria-label="Previous"
-//           >
-//             <ChevronLeft className="h-6 w-6 text-gray-600 dark:text-gray-300" />
-//           </button>
-//
-//           <button
-//             onClick={next}
-//             disabled={isAnimating}
-//             className="absolute -right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white p-2 shadow-lg transition-all hover:bg-gray-50 disabled:opacity-50 dark:bg-gray-800 dark:hover:bg-gray-700 md:-right-4 lg:-right-6"
-//             aria-label="Next"
-//           >
-//             <ChevronRight className="h-6 w-6 text-gray-600 dark:text-gray-300" />
-//           </button>
-//
-//           {/* Slider */}
-//           <div className="overflow-hidden" {...touchHandlers}>
-//             <div
-//               className="flex transition-transform duration-500 ease-out"
-//               style={{
-//                 transform: `translateX(-${currentIndex * 100}%)`,
-//                 width: `${teachersData.length * 100}%`,
-//               }}
-//             >
-//               {teachersData.map((teacher) => (
-//                 <div key={teacher.id} className="w-full px-3">
-//                   <div className="mx-auto max-w-2xl overflow-hidden rounded-xl bg-white shadow-lg transition-all hover:shadow-xl dark:bg-gray-800">
-//                     <div className="flex flex-col md:flex-row">
-//                       {/* Teacher Image */}
-//                       <div className="aspect-square w-full md:w-2/5">
-//                         <img
-//                           src={teacher.image}
-//                           alt={teacher.name}
-//                           className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-//                           loading="lazy"
-//                         />
-//                       </div>
-//
-//                       {/* Teacher Info */}
-//                       <div className="flex-1 p-6">
-//                         <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
-//                           {teacher.name}
-//                         </h3>
-//                         <p className="mb-3 text-lg font-medium text-blue-600 dark:text-blue-400">
-//                           {teacher.designation}
-//                         </p>
-//                         <p className="mb-4 text-gray-600 dark:text-gray-300">
-//                           {teacher.bio}
-//                         </p>
-//
-//                         {/* Social Links */}
-//                         <div className="mt-auto flex items-center space-x-4 border-t border-gray-200 pt-4 dark:border-gray-700">
-//                           <a
-//                             href={`mailto:${teacher.email}`}
-//                             className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-//                             aria-label={`Email ${teacher.name}`}
-//                           >
-//                             <Mail className="h-5 w-5" />
-//                           </a>
-//                           <a
-//                             href={teacher.linkedin}
-//                             target="_blank"
-//                             rel="noopener noreferrer"
-//                             className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-//                             aria-label={`${teacher.name}'s LinkedIn profile`}
-//                           >
-//                             <LinkedinIcon className="h-5 w-5" />
-//                           </a>
-//                           <a
-//                             href={`https://twitter.com/${teacher.twitter}`}
-//                             target="_blank"
-//                             rel="noopener noreferrer"
-//                             className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
-//                             aria-label={`${teacher.name}'s Twitter profile`}
-//                           >
-//                             <Twitter className="h-5 w-5" />
-//                           </a>
-//                         </div>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//
-//           {/* Slide Indicators */}
-//           <div className="mt-6 flex justify-center space-x-2">
-//             {teachersData.map((_, index) => (
-//               <button
-//                 key={index}
-//                 className={`h-2 w-2 rounded-full transition-all ${
-//                   currentIndex === index
-//                     ? "w-4 bg-blue-600"
-//                     : "bg-gray-300 hover:bg-gray-400"
-//                 }`}
-//                 onClick={() => {
-//                   if (!isAnimating) {
-//                     setCurrentIndex(index);
-//                   }
-//                 }}
-//                 aria-label={`Go to slide ${index + 1}`}
-//               />
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-//
-// export default Teachers;
 "use client";
-import React, { useState, useEffect } from "react";
+
+import teachersData from "@/components/Teachers/teachersData";
 import {
   ChevronLeft,
   ChevronRight,
@@ -232,32 +9,26 @@ import {
   MoreHorizontal,
   Twitter,
 } from "lucide-react";
-import teachersData from "@/components/Teachers/teachersData";
+import { useEffect, useState } from "react";
 
-// Custom hook for handling responsive items per page
 const useResponsiveItemsPerPage = () => {
   const [itemsPerPage, setItemsPerPage] = useState(3);
 
   useEffect(() => {
     const handleResize = () => {
-      // Mobile: 1 item, Laptop and above: 3 items
       setItemsPerPage(window.innerWidth < 768 ? 1 : 3);
     };
 
-    // Initial setup
     handleResize();
 
-    // Add event listener
     window.addEventListener("resize", handleResize);
 
-    // Cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return itemsPerPage;
 };
 
-// Pagination Button Component
 const PaginationButton = ({
   children,
   onClick,
@@ -284,7 +55,6 @@ const PaginationButton = ({
   </button>
 );
 
-// Pagination Component
 const Pagination = ({
   totalItems,
   currentPage,
