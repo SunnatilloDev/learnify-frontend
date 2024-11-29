@@ -5,6 +5,42 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import WithLayout from "@/components/with-layout/layout";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sign In | EduVerse",
+  description: "Access your EduVerse account. Continue your professional development journey with our expert-led courses and certification programs.",
+  keywords: [
+    "sign in",
+    "login",
+    "professional training",
+    "expert courses",
+    "certification",
+    "skill development",
+    "career growth",
+    "EduVerse login"
+  ],
+  openGraph: {
+    title: "Sign In to EduVerse",
+    description: "Access your account on the leading professional education platform. Continue your learning journey.",
+    type: "website",
+    locale: "en_US",
+    siteName: "EduVerse",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sign In to EduVerse",
+    description: "Access your account on the leading professional education platform. Continue your learning journey.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+};
 
 const SignInPage = () => {
   const { data: session, status } = useSession();
