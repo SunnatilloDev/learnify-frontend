@@ -4,6 +4,14 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import { compare } from "bcryptjs";
+import { JWT } from "next-auth/jwt";
+import { UserType } from "@prisma/client";
+
+interface ExtendedJWT extends JWT {
+  userType?: UserType | null;
+  phoneNumber?: string | null;
+  needsOnboarding?: boolean;
+}
 
 export const options: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -42,7 +50,7 @@ export const options: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user, trigger, session }) {
+    async jwt({ token, user, trigger, session }): Promise<ExtendedJWT> {
       if (trigger === "update" && session?.name) {
         token.name = session.name;
       }
@@ -68,9 +76,10 @@ export const options: NextAuthOptions = {
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.userType = token.userType;
-        session.user.phoneNumber = token.phoneNumber;
-        session.user.needsOnboarding = token.needsOnboarding;
+        const extendedToken = token as ExtendedJWT;
+        session.user.userType = extendedToken.userType;
+        session.user.phoneNumber = extendedToken.phoneNumber;
+        session.user.needsOnboarding = extendedToken.needsOnboarding;
       }
       return session;
     },
@@ -105,8 +114,8 @@ export const options: NextAuthOptions = {
             return true;
           }
 
-          // If user exists but no account is linked, link the account
-          if (existingUser && existingUser.accounts.length === 0) {
+          // If user exists but doesn't have a Google account linked
+          if (!existingUser.accounts.some((acc) => acc.provider === "google")) {
             await prisma.account.create({
               data: {
                 userId: existingUser.id,
@@ -119,11 +128,7 @@ export const options: NextAuthOptions = {
                 id_token: account.id_token,
               },
             });
-            return true;
           }
-
-          // Allow sign in if the account is already linked
-          return true;
         } catch (error) {
           console.error("Error in signIn callback:", error);
           return false;
