@@ -159,7 +159,7 @@ export const AuthButton = () => {
               <Menu.Item>
                 {({ active }) => (
                   <Link
-                    href="/register"
+                    href="/signup"
                     className={`${
                       active ? "bg-gray-100 dark:bg-gray-700" : ""
                     } block px-4 py-2 text-sm text-gray-700 dark:text-gray-200`}
