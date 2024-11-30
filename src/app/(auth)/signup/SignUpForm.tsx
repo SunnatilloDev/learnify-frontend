@@ -25,10 +25,10 @@ export default function SignUpForm() {
     <div className="w-full">
       <div className="text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Create your account
+          Hisobingizni yarating
         </h2>
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-          Join thousands of professionals advancing their careers
+          Minglab mutaxassislar qatoriga qo'shiling
         </p>
       </div>
 
@@ -47,7 +47,7 @@ export default function SignUpForm() {
               <path d="M10.1 5.317c1.19 0 2.257.408 3.096 1.21L15.52 4.203C14.182 2.971 12.35 2.2 10.1 2.2c-3.13 0-5.91 1.738-7.238 4.257l2.706 2.142c.637-1.915 2.422-3.339 4.532-3.339z" fill="#EA4335"/>
             </g>
           </svg>
-          Sign up with Google
+          Google bilan davom etish
         </motion.button>
 
         <div className="relative my-6">
@@ -56,7 +56,7 @@ export default function SignUpForm() {
           </div>
           <div className="relative flex justify-center text-sm">
             <span className="bg-white px-2 text-gray-500 dark:bg-gray-800 dark:text-gray-400">
-              Or continue with email
+              Yoki elektron pochta orqali
             </span>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function SignUpForm() {
       <form className="space-y-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-            Full Name
+            To'liq ism
           </label>
           <div className="mt-1">
             <input
@@ -81,7 +81,7 @@ export default function SignUpForm() {
 
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-            Email address
+            Elektron pochta
           </label>
           <div className="mt-1">
             <input
@@ -91,14 +91,14 @@ export default function SignUpForm() {
               autoComplete="email"
               required
               className="block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder-gray-500 transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-              placeholder="you@example.com"
+              placeholder="misol@misol.com"
             />
           </div>
         </div>
 
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-            Password
+            Parol
           </label>
           <div className="relative mt-1">
             <input
@@ -135,11 +135,11 @@ export default function SignUpForm() {
                 ))}
               </div>
               <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                {getPasswordStrength(password) === 0 && "Very weak password"}
-                {getPasswordStrength(password) === 1 && "Weak password"}
-                {getPasswordStrength(password) === 2 && "Medium strength password"}
-                {getPasswordStrength(password) === 3 && "Strong password"}
-                {getPasswordStrength(password) === 4 && "Very strong password"}
+                {getPasswordStrength(password) === 0 && "Juda zaif parol"}
+                {getPasswordStrength(password) === 1 && "Zaif parol"}
+                {getPasswordStrength(password) === 2 && "O'rtacha kuchli parol"}
+                {getPasswordStrength(password) === 3 && "Kuchli parol"}
+                {getPasswordStrength(password) === 4 && "Juda kuchli parol"}
               </p>
             </div>
           )}
@@ -156,14 +156,15 @@ export default function SignUpForm() {
             />
           </div>
           <label htmlFor="terms" className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-            I agree to the{" "}
+            Men{" "}
             <Link href="#" className="font-medium text-primary hover:underline">
-              Terms of Service
+              Foydalanish shartlari
             </Link>{" "}
-            and{" "}
+            va{" "}
             <Link href="#" className="font-medium text-primary hover:underline">
-              Privacy Policy
+              Maxfiylik siyosati
             </Link>
+            ga roziman
           </label>
         </div>
 
@@ -173,9 +174,16 @@ export default function SignUpForm() {
           type="submit"
           className="flex w-full justify-center rounded-lg bg-primary px-8 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
         >
-          Create account
+          Ro'yxatdan o'tish
         </motion.button>
       </form>
+
+      <p className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+        Hisobingiz bormi?{" "}
+        <Link href="/signin" className="font-medium text-primary hover:underline">
+          Tizimga kirish
+        </Link>
+      </p>
     </div>
   );
 }

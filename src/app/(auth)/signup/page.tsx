@@ -4,21 +4,20 @@ import Link from "next/link";
 import WithLayout from "@/components/with-layout/layout";
 
 export const metadata: Metadata = {
-  title: "Create Account | Learnify",
+  title: "Ro'yxatdan o'tish | Learnify",
   description:
-    "Join Learnify to access premium professional courses, expert-led training, and certification programs. Start your professional development journey today.",
+    "Learnify platformasida ro'yxatdan o'ting va professional kurslar, ekspert o'qituvchilar va sertifikatlar dasturlariga kirish imkoniyatiga ega bo'ling.",
   keywords: [
-    "sign up",
-    "create account",
-    "register",
+    "ro'yxatdan o'tish",
+    "hisob yaratish",
     "learnify",
-    "online learning",
-    "professional courses",
+    "onlayn ta'lim",
+    "professional kurslar",
   ],
   openGraph: {
-    title: "Join Learnify - Create Your Account",
+    title: "Learnify - Hisobingizni yarating",
     description:
-      "Start your learning journey with Learnify. Access expert-led courses and certification programs.",
+      "Learnify bilan o'quv sayohatingizni boshlang. Ekspert o'qituvchilar tomonidan o'qitiladigan kurslarga kiring.",
     type: "website",
   },
 };

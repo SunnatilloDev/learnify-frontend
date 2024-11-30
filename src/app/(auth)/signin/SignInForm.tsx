@@ -64,7 +64,7 @@ export default function SignInForm() {
               autoComplete="email"
               required
               className="block w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 placeholder-gray-500 transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-              placeholder="siz@misol.com"
+              placeholder="misol@misol.com"
             />
           </div>
         </div>

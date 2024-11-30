@@ -7,6 +7,15 @@ import { Fragment } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 
+  /**
+   * The AuthButton component displays a button that allows the user to sign in,
+   * sign out, or view their profile. If the user is not authenticated, the button
+   * displays a dropdown menu with options to sign in with Google or email.
+   * If the user is authenticated, the button displays a dropdown menu with options
+   * to view their profile or sign out.
+   *
+   * @returns The AuthButton component
+   */
 export const AuthButton = () => {
   const { user, isAuthenticated, isLoading, signOut } = useAuth();
 
