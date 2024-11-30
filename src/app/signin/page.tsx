@@ -2,62 +2,38 @@
 
 import Link from "next/link";
 import WithLayout from "@/components/with-layout/layout";
-import { useSession } from "next-auth/react";
-import { useEffect } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
-const SigninPage = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
+const SignInContent = () => {
   const searchParams = useSearchParams();
-  const isNewlyRegistered = searchParams.get("registered") === "true";
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      router.replace("/welcome");
-    }
-  }, [status, router]);
-
-  if (status === "loading") {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <div className="h-16 w-16 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
-      </div>
-    );
-  }
-
+  const isNewlyRegistered = searchParams?.get("registered") === "true";
+  
   return (
     <WithLayout>
       <section className="relative z-10 overflow-hidden pb-16 pt-36 md:pb-20 lg:pb-28 lg:pt-[180px]">
         <div className="container">
-          <div className="-mx-4 flex flex-wrap">
+          <div className="flex flex-wrap">
             <div className="w-full px-4">
-              <div className="shadow-three mx-auto max-w-[500px] rounded bg-white px-6 py-10 dark:bg-dark sm:p-[60px]">
+              <div className="mx-auto max-w-[500px] rounded-md bg-white px-6 py-10 shadow-one dark:bg-dark sm:p-[60px]">
+                <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
+                  Tizimga kirish
+                </h3>
                 {isNewlyRegistered && (
-                  <div className="mb-8 rounded-lg bg-green-50 p-4 dark:bg-green-900/50">
-                    <div className="flex">
-                      <div className="flex-shrink-0">
-                        <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div className="ml-3">
-                        <p className="text-sm font-medium text-green-800 dark:text-green-200">
-                          Ro'yxatdan o'tish muvaffaqiyatli yakunlandi! Iltimos, tizimga kiring.
-                        </p>
-                      </div>
-                    </div>
+                  <div className="mb-4 rounded-md bg-green-50 p-4 text-sm text-green-800 dark:bg-green-900 dark:text-green-100">
+                    Ro'yxatdan o'tish muvaffaqiyatli yakunlandi! Endi tizimga kirishingiz mumkin.
                   </div>
                 )}
-                <h3 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl">
-                  Kirish
-                </h3>
-                <p className="mb-11 text-base font-medium text-body-color dark:text-body-color-dark">
-                  Tizimga kirish uchun ma'lumotlaringizni kiriting
+                <p className="mb-11 text-center text-base font-medium text-body-color">
+                  Tizimga kirish uchun Google hisobingizdan foydalaning
                 </p>
-                <button className="mb-6 flex w-full items-center justify-center rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base font-medium text-body-color outline-none transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:hover:border-primary dark:hover:bg-primary/5 dark:hover:text-primary">
-                  <span className="mr-3">
+                <button
+                  onClick={() => signIn("google", { callbackUrl: "/" })}
+                  className="mb-6 flex w-full items-center justify-center gap-3 rounded-md bg-white p-3 text-base font-medium text-body-color shadow-one hover:text-primary dark:bg-[#242B51] dark:text-body-color dark:shadow-signUp dark:hover:text-white"
+                >
+                  <span>
                     <svg
                       width="20"
                       height="20"
@@ -67,66 +43,66 @@ const SigninPage = () => {
                     >
                       <g clipPath="url(#clip0_95:967)">
                         <path
-                          d="M19.999 10.2217C20.0111 9.53428 19.9387 8.84788 19.7834 8.17737H10.2031V11.8884H15.8266C15.7201 12.5391 15.4804 13.162 15.1219 13.7195C14.7634 14.2771 14.2935 14.7578 13.7405 15.1328L13.7209 15.2571L16.7502 17.5568L16.96 17.5774C18.8873 15.8329 19.9986 13.2661 19.9986 10.2217"
+                          d="M20.0001 10.2216C20.0001 9.53416 19.9294 8.86766 19.7854 8.22116H10.2041V12.0486H15.8276C15.7211 12.6671 15.4814 13.2422 15.1229 13.7424C14.7644 14.2426 14.2946 14.6566 13.7416 14.9628V17.4128H17.0596C18.9896 15.6728 20.0001 13.1716 20.0001 10.2216Z"
                           fill="#4285F4"
                         />
                         <path
-                          d="M10.2055 19.9999C12.9605 19.9999 15.2734 19.111 16.9629 17.5777L13.7429 15.1331C12.8813 15.7221 11.7248 16.1333 10.2055 16.1333C8.91513 16.1259 7.65991 15.7205 6.61791 14.9745C5.57592 14.2286 4.80007 13.1801 4.40044 11.9777L4.28085 11.9877L1.13101 14.3765L1.08984 14.4887C1.93817 16.1456 3.24007 17.5386 4.84997 18.5118C6.45987 19.4851 8.31429 20.0004 10.2059 19.9999"
+                          d="M10.2042 20.0001C12.9592 20.0001 15.2722 19.1111 17.0597 17.4128L13.7417 14.9628C12.8807 15.5438 11.7227 15.8908 10.2042 15.8908C7.54021 15.8908 5.28021 14.1578 4.45521 11.8128H0.994209V14.3348C2.77521 17.7348 6.21521 20.0001 10.2042 20.0001Z"
                           fill="#34A853"
                         />
                         <path
-                          d="M4.39899 11.9777C4.1758 11.3411 4.06063 10.673 4.05807 9.99996C4.06218 9.32799 4.1731 8.66075 4.38684 8.02225L4.38115 7.88968L1.19269 5.4624L1.0884 5.51101C0.372763 6.90343 0 8.4408 0 9.99987C0 11.5589 0.372763 13.0963 1.0884 14.4887L4.39899 11.9777Z"
+                          d="M4.45518 11.8128C4.24318 11.2438 4.12718 10.6308 4.12718 9.99981C4.12718 9.36881 4.24318 8.75681 4.45518 8.18781V5.66581H0.994179C0.345179 7.00781 -0.000320984 8.48481 -0.000320984 9.99981C-0.000320984 11.5148 0.345179 12.9918 0.994179 14.3348L4.45518 11.8128Z"
                           fill="#FBBC05"
                         />
                         <path
-                          d="M10.2059 3.86663C11.668 3.84438 13.0822 4.37803 14.1515 5.35558L17.0313 2.59996C15.1843 0.901848 12.7383 -0.0298855 10.2059 -3.6784e-05C8.31431 -0.000477834 6.4599 0.514732 4.85001 1.48798C3.24011 2.46124 1.9382 3.85416 1.08984 5.51101L4.38946 8.02225C4.79303 6.82005 5.57145 5.77231 6.61498 5.02675C7.65851 4.28118 8.9145 3.87541 10.2059 3.86663Z"
-                          fill="#EB4335"
+                          d="M10.2042 4.10884C11.6932 4.10884 13.0302 4.63284 14.1042 5.65484L17.0302 2.72884C15.2672 1.03984 12.9542 0 10.2042 0C6.21521 0 2.77521 2.26533 0.994209 5.66533L4.45521 8.18733C5.28021 5.84233 7.54021 4.10884 10.2042 4.10884Z"
+                          fill="#EA4335"
                         />
                       </g>
                       <defs>
                         <clipPath id="clip0_95:967">
-                          <rect width="20" height="20" fill="#090E34" />
+                          <rect width="20" height="20" fill="white" />
                         </clipPath>
                       </defs>
                     </svg>
                   </span>
-                  Google orqali kirish
+                  Google bilan davom etish
                 </button>
 
                 <div className="mb-8 flex items-center justify-center">
-                  <span className="hidden h-[1px] w-full max-w-[70px] bg-body-color/50 sm:block"></span>
+                  <span className="hidden h-[1px] w-full max-w-[60px] bg-body-color/50 sm:block"></span>
                   <p className="w-full px-5 text-center text-base font-medium text-body-color">
-                    Yoki elektron pochta orqali kiring
+                    Yoki elektron pochta orqali
                   </p>
-                  <span className="hidden h-[1px] w-full max-w-[70px] bg-body-color/50 sm:block"></span>
+                  <span className="hidden h-[1px] w-full max-w-[60px] bg-body-color/50 sm:block"></span>
                 </div>
                 <form>
                   <div className="mb-8">
                     <label
                       htmlFor="email"
-                      className="mb-3 block text-sm text-dark dark:text-white"
+                      className="mb-3 block text-sm font-medium text-dark dark:text-white"
                     >
                       Elektron pochta
                     </label>
                     <input
                       type="email"
                       name="email"
-                      placeholder="Elektron pochtangizni kiriting"
-                      className="w-full rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+                      placeholder="Enter your Email"
+                      className="w-full rounded-md border border-transparent px-6 py-3 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                     />
                   </div>
                   <div className="mb-8">
                     <label
                       htmlFor="password"
-                      className="mb-3 block text-sm text-dark dark:text-white"
+                      className="mb-3 block text-sm font-medium text-dark dark:text-white"
                     >
                       Parol
                     </label>
                     <input
                       type="password"
                       name="password"
-                      placeholder="Parolingizni kiriting"
-                      className="w-full rounded-sm border border-stroke bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:text-body-color-dark dark:shadow-two dark:focus:border-primary dark:focus:shadow-none"
+                      placeholder="Enter your Password"
+                      className="w-full rounded-md border border-transparent px-6 py-3 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
                     />
                   </div>
                   <div className="mb-8 flex flex-col justify-between sm:flex-row sm:items-center">
@@ -173,7 +149,7 @@ const SigninPage = () => {
                     </div>
                   </div>
                   <div className="mb-6">
-                    <button className="flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark">
+                    <button className="flex w-full items-center justify-center rounded-md bg-primary px-9 py-4 text-base font-medium text-white transition duration-300 ease-in-out hover:bg-opacity-80 hover:shadow-signUp">
                       Kirish
                     </button>
                   </div>
@@ -188,65 +164,37 @@ const SigninPage = () => {
             </div>
           </div>
         </div>
-        <div className="absolute left-0 top-0 z-[-1]">
-          <svg
-            width="1440"
-            height="969"
-            viewBox="0 0 1440 969"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <mask
-              id="mask0_95:1005"
-              style={{ maskType: "alpha" }}
-              maskUnits="userSpaceOnUse"
-              x="0"
-              y="0"
-              width="1440"
-              height="969"
-            >
-              <rect width="1440" height="969" fill="#090E34" />
-            </mask>
-            <g mask="url(#mask0_95:1005)">
-              <path
-                opacity="0.1"
-                d="M1086.96 297.978L632.959 554.978L935.625 535.926L1086.96 297.978Z"
-                fill="url(#paint0_linear_95:1005)"
-              />
-              <path
-                opacity="0.1"
-                d="M1324.5 755.5L1450 687V886.5L1324.5 967.5L-10 288L1324.5 755.5Z"
-                fill="url(#paint1_linear_95:1005)"
-              />
-            </g>
-            <defs>
-              <linearGradient
-                id="paint0_linear_95:1005"
-                x1="1178.4"
-                y1="151.853"
-                x2="780.959"
-                y2="453.581"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#4A6CF7" />
-                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-              </linearGradient>
-              <linearGradient
-                id="paint1_linear_95:1005"
-                x1="160.5"
-                y1="220"
-                x2="1099.45"
-                y2="1192.04"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#4A6CF7" />
-                <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
       </section>
     </WithLayout>
+  );
+};
+
+const SigninPage = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.replace("/welcome");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="h-16 w-16 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
+      </div>
+    );
+  }
+
+  return (
+    <Suspense fallback={
+      <div className="flex h-screen items-center justify-center">
+        <div className="h-16 w-16 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
+      </div>
+    }>
+      <SignInContent />
+    </Suspense>
   );
 };
 
