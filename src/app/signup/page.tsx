@@ -5,20 +5,22 @@ import WithLayout from "@/components/with-layout/layout";
 
 export const metadata: Metadata = {
   title: "Create Account | EduVerse",
-  description: "Join EduVerse to access premium professional courses, expert-led training, and certification programs. Start your professional development journey today.",
+  description:
+    "Join EduVerse to access premium professional courses, expert-led training, and certification programs. Start your professional development journey today.",
   keywords: [
     "sign up",
     "create account",
     "register",
     "eduverse",
     "online learning",
-    "professional courses"
+    "professional courses",
   ],
   openGraph: {
     title: "Join EduVerse - Create Your Account",
-    description: "Start your learning journey with EduVerse. Access expert-led courses and certification programs.",
+    description:
+      "Start your learning journey with EduVerse. Access expert-led courses and certification programs.",
     type: "website",
-  }
+  },
 };
 
 export default function SignUpPage() {
