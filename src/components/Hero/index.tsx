@@ -8,32 +8,28 @@ const Hero = () => {
         // className="relative z-10 flex min-h-screen items-center overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
         className="relative z-10 flex min-h-screen items-center overflow-hidden bg-white pt-0 dark:bg-gray-dark "
       >
-        <div className="container">
-          <div className="flex flex-wrap">
-            <div className="flex  w-full items-center justify-between gap-10 px-4">
-              <div className="mx-auto max-w-[800px]">
-                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-[45px] md:leading-tight">
-                  EduVerse – O‘rganish va o'rgatish uchun eng yaxshi muhit!
+<div className="container">
+          <div className="-mx-4 flex flex-wrap">
+            <div className="w-full px-4">
+              <div
+                className="wow fadeInUp mx-auto max-w-[900px] text-center"
+                data-wow-delay=".2s"
+              >
+                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
+                Kurs yarating, soting, daromad qiling.<br className="hidden sm:block" />
+                Hoziroq boshlang!
                 </h1>
-                <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                  Talabalar va o‘qituvchilar uchun mukammal platforma –
-                  O‘rganish oson va foydali!
+                <p className="mb-12 text-base font-medium !leading-relaxed text-body-color dark:text-gray-200 dark:opacity-90 sm:text-lg md:text-xl">
+                EduVerse platformasi o'qituvchilar kurslarini sotish uchun eng yaxshi platforma. <br /> Har bir o'qituvchi va o'quvchi uchun maxsus ishlab chiqilgan imkoniyatlar orqali ta'lim jarayonini yangi bosqichga olib chiqing.
                 </p>
-                <div className="flex flex-col justify-start space-y-4 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0">
+                <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <Link
                     href="/signup"
-                    className="rounded-2xl bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                    className="rounded-2xl bg-primary py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
-                    ⚡️ O'rganishni Boshlang
+                    ⚡️ Boshlash (bepul)
                   </Link>
                 </div>
-              </div>
-              <div className="flex hidden w-full justify-end align-bottom xl:flex">
-                <img
-                  src="/images/hero/study.jpg"
-                  alt="asd"
-                  className="h-[500px] w-[500px] rounded-[20%] object-cover"
-                />
               </div>
             </div>
           </div>
